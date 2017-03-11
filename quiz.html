@@ -1,0 +1,42 @@
+<div class="quiz-area" ng-show="inProgress">
+	<div class="repeated-item" ng-show="!quizOver">
+        <h1>Hello <span style="color:red">{{enteredname}}</span>!</h1>
+        <hr>
+        <div class="container"> 
+            <div class="jumbotron">
+                <h2 id="question">{{question}}</h2>
+                <ul id="options" class="row">
+                    <li class="col-md-6" ng-repeat="option in options">
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-click="checkAnswer(this)" style="cursor:pointer;">{{option}}</li>
+                        </ul>
+                    </li>                    
+                </ul>
+                <button class="btn btn-info" ng-click="checkAnswer()" ng-show="answerMode">Submit</button>
+            </div>
+        </div>
+		<div ng-show="!answerMode">
+			<button  ng-click="next()" class="btn btn-danger next-question">Next Question</button>
+		</div>
+	</div>
+	<div ng-show="quizOver">
+        <h1>Report</h1>
+		<h2>You've completed the Quiz!</h2>
+		<button class="btn btn-lg btn-default" ng-click="reset()"><span class="" aria-hidden="true"></span> Play again</button>
+	</div>
+
+	<div id="score">
+		<span class="" ng-show="quizOver">Final </span>Score: {{score}} of {{options.length+1}}
+        
+	</div>
+</div>
+
+<div class="intro" ng-show="!inProgress">
+<div class="container">
+    <div class="jumbotron text-center form-group">
+        <h2>Before Starting the quiz let's know each other. I am Mr.Quiz , What's your name?</h2>
+        <input class="form-control" placeholder="Enter Your Name" ng-model="enteredname">
+    </div>
+	<button class="btn btn-lg btn-primary" id="startQuiz" ng-click="start()"><span class="" aria-hidden="true"></span> Start the Quiz</button>
+</div>
+</div>

@@ -1,0 +1,25 @@
+@import url('http://fonts.googleapis.com/css?family=Montserrat|Bitter');
+.quiz-area{
+    display: block;
+    width: auto;
+    height: auto;
+}
+.repeated-item{
+    margin:auto;
+    font-weight: 700;
+}
+#question{
+    font-family: serif;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    font-size: 3em;
+}
+#options{
+    font-family: sans-serif;
+    margin: 25px 0px;
+}
+#options li{
+    list-style-type: none;
+    text-transform : capitalize;
+    
+}

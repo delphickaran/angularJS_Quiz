@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+    <head>
+        <!-- Bootstrap CSS-->
+        <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+        <!-- Latest angularJS lib-->
+        <script src="https://code.angularjs.org/1.6.3/angular.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <nav class="nav navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                    <a class="navbar-brand">
+                       Finomena 
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse" id="navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a ui-sref="name">Home</a></li>
+                        <li class=""><a>About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div ui-view>
+                <div class="jumbotron text-center">
+                    <h1>Are you ready for the <span style="color:red">quiz</span>!</h1>
+                    <p>This Quiz is just to check your General Knowledge</p>
+                    <a ui-sref="name" class="btn btn-danger">Go to Quiz!</a>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script
+          src="https://code.jquery.com/jquery-3.1.1.min.js"
+          integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+          crossorigin="anonymous"></script>
+          <script src="bootstrap/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+</html>

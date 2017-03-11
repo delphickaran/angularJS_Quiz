@@ -1,0 +1,37 @@
+<div class="quiz-area" ng-show="inProgress">
+	<div class="repeated-item" ng-show="!quizOver">
+		<h2 id="question">{{question}}</h2>
+		<ul id="options" class="row">
+			<li class="col-md-6" ng-repeat="option in options">
+				<div>
+                <label>
+					<input type="radio" class="btn btn-lg" name="answer" value="{{option}}">
+					{{option}}
+				</label>
+                </div>    
+			</li>
+		</ul>
+		<button class="btn btn-lg btn-primary" ng-click="checkAnswer()" ng-show="answerMode">Submit</button>
+
+		<div ng-show="!answerMode">
+			<button ng-click="next()" class="btn btn-lg btn-info next-question">Next Question</button>
+			<button class="btn btn-lg btn-danger" ng-click="reset()">Start Over</button>
+		</div>
+	</div>
+
+	<div ng-show="quizOver">
+        <h1>Report</h1>
+		<h2>You've completed the Quiz!</h2>
+		<button class="btn btn-lg btn-default" ng-click="reset()"><span class="glyphicon glyphicon-left" aria-hidden="true"></span> Play again</button>
+	</div>
+
+	<div id="score">
+		<span class="" ng-show="quizOver">Final </span>Score: {{score}} of {{options.length+1}}
+        
+	</div>
+</div>
+
+<div class="intro" ng-show="!inProgress">
+	
+	<button class="btn btn-lg btn-primary" id="startQuiz" ng-click="start()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Start the Quiz</button>
+</div>

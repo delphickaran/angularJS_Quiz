@@ -11,19 +11,21 @@ myApp.config(function($stateProvider){
  myApp.controller('mainController',['$scope','$http',function($scope,$http){
          $scope.name = "";
          $scope.enteredname = $scope.name;
+     $scope.currentStep= 1;
          $scope.$watch('enteredname', function(){
          $scope.name = $scope.enteredname;
          $http.get('questions.json').then(function(response){
              $scope.questions = response.data ;
+              console.log($scope.questions);
          })
+         //$scope.Api=$resource('questions.json');
         // $scope.questions = $scope.Api.query();
-        console.log($scope.questions);
+       
              
      });
      // Initialize Quiz
        $scope.start = function(){                           
           $scope.score = 0;
-           $scope.currentStep = 1;
           $scope.inProgress = true;
           $scope.quizOver = false; 
         };
@@ -37,9 +39,6 @@ myApp.config(function($stateProvider){
        $scope.checkAnswer = function(ans){
            console.log(ans);
            var answer = ans.option ;
-           $scope.$watch('answer', function(){
-               ans.option = answer; 
-           });
         //  if(!$('input[name=answer]:checked').length) return;
         //  var ans = $('input[name=answer]:checked').val();
           if(answer === $scope.options[$scope.answer])

@@ -4,7 +4,7 @@
         <hr>
         <div class="container"> 
             <div class="jumbotron" ng-repeat ="question in questions">
-                <div ng-if="({{question.id}} === {{currentStep}})">
+                <div ng-if="(question.id === currentStep)">
                 <h2 id="question">{{question}}</h2>
                 <ul id="options" class="row">
                     <li class="col-md-6" ng-repeat="option in options">

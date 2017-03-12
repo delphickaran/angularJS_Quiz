@@ -8,7 +8,7 @@
                 <h2 id="question">{{ques.question}}</h2>
                 <ul id="options" class="row">
                     <li class="col-md-6" ng-repeat="option in ques.options">
-                        <ul class="list-group">
+                        <ul class="list-group  ">
                             <li class="list-group-item" ng-click="checkAnswer(this)" onclick="myFunction(this, 'green')" style="cursor:pointer;">{{option}}
                             </li>
                         </ul>
@@ -24,11 +24,15 @@
 	<div ng-show="quizOver">
         <h1>Report</h1>
 		<h2>You've completed the Quiz!</h2>
+        <canvas id="base" class="chart-bar"
+              chart-data="data" chart-labels="labels" chart-colors="colors"
+              chart-dataset-override="datasetOverride" >
+        </canvas> 
 		<button class="btn btn-lg btn-default" ng-click="reset()"><span class="" aria-hidden="true"></span> Play again</button>
 	</div>
 
 	<div id="score">
-		<span class="" ng-show="quizOver">Final </span>Score: {{score}} of {{options.length+1}}
+		<span class="" ng-show="quizOver">Final </span>Score: {{score}} of {{5}} {{answers}}
         
 	</div>
 </div>

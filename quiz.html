@@ -9,7 +9,7 @@
                 <ul id="options" class="row">
                     <li class="col-md-6" ng-repeat="option in ques.options">
                         <ul class="list-group  ">
-                            <li ><button class="list-group-item" angular-ripple ng-click="checkAnswer(this)" style="cursor:pointer;">{{option}}</button>
+                            <li ><button class="list-group-item" angular-ripple ng-click="checkAnswer($index)" ng-disabled="disableButton" style="cursor:pointer;">{{option}}</button>
                             </li>
                         </ul>
                     </li>                    
@@ -18,21 +18,33 @@
             </div>
         </div>
 		<div ng-show="!answerMode">
-			<button  ng-click="next()" class="btn btn-danger next-question">Next Question</button>
+			<button  ng-click="next()" ng-if = "currentStep < questions.length -1 " class="btn btn-danger next-question">Next Question</button>
+			<button  ng-click="next()" ng-if = "currentStep == questions.length -1 " class="btn btn-danger next-question">Get Results</button>
 		</div>
 	</div>
 	<div ng-show="quizOver">
         <h1>Report</h1>
 		<h2>You've completed the Quiz!</h2>
-        <canvas id="base" class="chart-bar"
-              chart-data="data" chart-labels="labels" chart-colors="colors"
-              chart-dataset-override="datasetOverride" >
+        <h2>FinalScore: <span style="color:red">{{score}}</span> of {{5}}</h2>
+        <div class="row">
+		  <div class="col-md-6">
+		    <h2>Your Graph</h2>
+		    <canvas id="base" class="chart-bar"
+          chart-data="data" chart-labels="labels" chart-colors="colors"
+          chart-dataset-override = "datasetOverride">
         </canvas> 
+		  </div>
+		  <div class="col-md-6">
+		    <h2>All questions and answers</h2>
+          <ul class="list-group">
+              <li class="list-group-item" ng-repeat="qa in allList">
+                <p>{{qa.question}}</p>
+                <p>Correct Answer: {{qa.answer + 1}}</p><p>Your Answer: {{qa.userAnswer + 1}}</p> 
+              </li>
+          </ul>
+		  </div>
+		</div>
 		<button class="btn btn-lg btn-default" ng-click="reset()"><span class="" aria-hidden="true"></span> Play again</button>
-	</div>
-
-	<div id="score">
-		<span class="" ng-show="quizOver">FinalScore: {{score}} of {{5}} {{answers}}</span>   
 	</div>
 </div>
 

@@ -12,6 +12,7 @@ myApp.config(function($stateProvider){
 //controller
  myApp.controller('mainController',['$scope','$http',function($scope,$http){
          $scope.name = "";
+        $scope.disableButton = false;
         $scope.answers = [];
          $scope.enteredname = $scope.name;
          $scope.currentStep= 0;
@@ -22,8 +23,7 @@ myApp.config(function($stateProvider){
      });
      $http.get('questions.json').then(function(response){
              $scope.questions = response.data ;
-              console.log($scope.questions);
-         console.log($scope.questions[1].answer);
+             $scope.allList = angular.copy($scope.questions);
          
          })
      //Graph
@@ -50,22 +50,24 @@ myApp.config(function($stateProvider){
        $scope.start = function(){                           
           $scope.score = 0;
           $scope.inProgress = true;
-          $scope.quizOver = false; 
+          $scope.quizOver = false;
+          $scope.answerMode = true;
         };
      //reset quiz
        $scope.reset = function() {
-				$scope.inProgress = false;
-				$scope.score = 0;
+            $scope.inProgress = false;
+            $scope.score = 0;
+            $scope.answerMode = true;
            $scope.currentStep = 0;
+		   $scope.allList = angular.copy($scope.questions);
+           $scope.answers = [];
 };
     
        //checkAnswer
-       $scope.checkAnswer = function(ans){
-           console.log(ans);
-           var answer = ans.option ;
-        //  if(!$('input[name=answer]:checked').length) return;
-        //  var ans = $('input[name=answer]:checked').val();
-          if(answer === $scope.questions[$scope.currentStep].options[$scope.questions[$scope.currentStep].answer])
+       $scope.checkAnswer = function(index){
+           $scope.allList[$scope.currentStep].userAnswer = index;
+           
+          if(index == $scope.questions[$scope.currentStep].answer)
             { $scope.score++;
               $scope.correctAns = true ;
              $scope.answers.push(1);
@@ -74,17 +76,19 @@ myApp.config(function($stateProvider){
            $scope.correctAns = false ;
            $scope.answers.push(0);
        }
+           $scope.disableButton = true;
            $scope.answerMode = false;
         
 };
        //nextQuestion
        $scope.next = function(){
             $scope.currentStep++;
-           if($scope.currentStep>4){
+			$scope.answerMode = true;
+           $scope.disableButton = false;
+           if($scope.currentStep == $scope.questions.length){
                $scope.quizOver = true ;
-               $scope.answers = [];               
+               $scope.answers = [];
+               
            }
        }
-      
-       $scope.reset();
 }]);

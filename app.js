@@ -11,7 +11,7 @@ myApp.config(function($stateProvider){
  myApp.controller('mainController',['$scope','$http',function($scope,$http){
          $scope.name = "";
          $scope.enteredname = $scope.name;
-         $scope.currentStep= 1;
+         $scope.currentStep= 0;
          $scope.$watch('enteredname', function(){
          $scope.name = $scope.enteredname;
          
@@ -23,6 +23,8 @@ myApp.config(function($stateProvider){
      $http.get('questions.json').then(function(response){
              $scope.questions = response.data ;
               console.log($scope.questions);
+         console.log($scope.questions[1].answer);
+         
          })
      // Initialize Quiz
        $scope.start = function(){                           
@@ -42,7 +44,7 @@ myApp.config(function($stateProvider){
            var answer = ans.option ;
         //  if(!$('input[name=answer]:checked').length) return;
         //  var ans = $('input[name=answer]:checked').val();
-          if(answer === $scope.options[$scope.answer])
+          if(answer === $scope.questions[$scope.currentStep].options[$scope.questions[$scope.currentStep].answer])
             { $scope.score++;
               $scope.correctAns = true ;
             }

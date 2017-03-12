@@ -27,11 +27,8 @@ myApp.config(function($stateProvider){
      
       $scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
 
-    $scope.labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-    $scope.data = [
-      [65, -59, 80, 81, -56, 55, -40],
-      [28, 48, -40, 19, 86, 27, 90]
-    ];
+    $scope.labels = ['Ques1', 'Ques2', 'Ques3', 'Ques4', 'Ques5'];
+    $scope.data = $scope.answers;
     $scope.datasetOverride = [
       {
         label: "Bar chart",

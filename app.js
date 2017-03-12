@@ -60,7 +60,6 @@ myApp.config(function($stateProvider){
             $scope.answerMode = true;
            $scope.currentStep = 0;
 		   $scope.allList = angular.copy($scope.questions);
-           $scope.answers = [];
 };
     
        //checkAnswer

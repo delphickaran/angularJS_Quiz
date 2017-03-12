@@ -7,6 +7,8 @@ myApp.config(function($stateProvider){
         controller:'mainController'
     })    
 })
+
+
 //controller
  myApp.controller('mainController',['$scope','$http',function($scope,$http){
          $scope.name = "";
@@ -24,13 +26,12 @@ myApp.config(function($stateProvider){
          console.log($scope.questions[1].answer);
          
          })
-     
-      $scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
-
-    $scope.labels = ['Ques1', 'Ques2', 'Ques3', 'Ques4', 'Ques5'];
-    $scope.data = $scope.answers;
-    $scope.datasetOverride = [
-      {
+     //Graph
+        $scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
+        $scope.labels = ['Ques1', 'Ques2', 'Ques3', 'Ques4', 'Ques5'];
+        $scope.data = $scope.answers;
+        $scope.datasetOverride = [
+          {
         label: "Bar chart",
         borderWidth: 1,
         type: 'bar'
@@ -71,7 +72,7 @@ myApp.config(function($stateProvider){
             }
        else{
            $scope.correctAns = false ;
-           $scope.answers.push(0);
+           $scope.answers.push(-1);
        }
            $scope.answerMode = false;
         

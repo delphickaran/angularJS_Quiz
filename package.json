@@ -15,5 +15,8 @@
     "url": "https://github.com/delphickaran/angularJS_Quiz/issues"
   },
   "homepage": "https://github.com/delphickaran/angularJS_Quiz#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "angular-chart.js": "^1.1.1"
+  }
 }

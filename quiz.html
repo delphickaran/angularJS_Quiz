@@ -9,7 +9,7 @@
                 <ul id="options" class="row">
                     <li class="col-md-6" ng-repeat="option in ques.options">
                         <ul class="list-group  ">
-                            <li ><button class="list-group-item" angular-ripple ng-click="checkAnswer($index)" ng-disabled="disableButton" style="cursor:pointer;">{{option}}</button>
+                            <li ><button class="list-group-item" angular-ripple ng-click="checkAnswer(this)" ng-disabled="disableButton" style="cursor:pointer;">{{option}}</button>
                             </li>
                         </ul>
                     </li>                    
@@ -39,12 +39,11 @@
           <ul class="list-group">
               <li class="list-group-item" ng-repeat="qa in allList">
                 <p>{{qa.question}}</p>
-                <p>Correct Answer: {{qa.answer + 1}}</p><p>Your Answer: {{qa.userAnswer + 1}}</p> 
+                <p>Correct Answer: {{qa.answer}}</p><p>Your Answer: {{qa.userAnswer}}</p> 
               </li>
           </ul>
 		  </div>
 		</div>
-		<button class="btn btn-lg btn-default" ng-click="reset()"><span class="" aria-hidden="true"></span> Play again</button>
 	</div>
 </div>
 

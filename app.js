@@ -52,6 +52,7 @@ myApp.config(function($stateProvider){
           $scope.inProgress = true;
           $scope.quizOver = false;
           $scope.answerMode = true;
+           
         };
      //reset quiz
        $scope.reset = function() {
@@ -64,9 +65,9 @@ myApp.config(function($stateProvider){
     
        //checkAnswer
        $scope.checkAnswer = function(index){
-           $scope.allList[$scope.currentStep].userAnswer = index;
+           $scope.allList[$scope.currentStep].userAnswer = index.option;
            
-          if(index == $scope.questions[$scope.currentStep].answer)
+          if(index.option == $scope.questions[$scope.currentStep].answer)
             { $scope.score++;
               $scope.correctAns = true ;
              $scope.answers.push(1);

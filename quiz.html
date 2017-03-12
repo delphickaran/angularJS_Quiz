@@ -3,16 +3,18 @@
         <h1>Hello <span style="color:red">{{enteredname}}</span>!</h1>
         <hr>
         <div class="container"> 
-            <div class="jumbotron">
+            <div class="jumbotron" ng-repeat ="question in questions">
+                <div ng-if="({{question.id}} === {{currentStep}})">
                 <h2 id="question">{{question}}</h2>
                 <ul id="options" class="row">
                     <li class="col-md-6" ng-repeat="option in options">
                         <ul class="list-group">
-                            <li class="list-group-item" ng-click="checkAnswer(this)" style="cursor:pointer;">{{option}}</li>
+                            <li class="list-group-item" ng-click="checkAnswer(this)" onclick="myFunction(this, 'green')" style="cursor:pointer;">{{option}}
+                            </li>
                         </ul>
                     </li>                    
                 </ul>
-                <button class="btn btn-info" ng-click="checkAnswer()" ng-show="answerMode">Submit</button>
+                    </div>
             </div>
         </div>
 		<div ng-show="!answerMode">

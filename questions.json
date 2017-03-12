@@ -1,0 +1,32 @@
+[
+        {
+            "question" : "What is the capital of India?",
+            "options" : ['delhi','mumbai','chennai','kolkata'],
+            "answer" : "0",
+            "id": "1"
+        },
+        {
+            "question" : "Who is the current prime minister of India?",
+            "options" : ["rajiv gandhi","salman khan","virat kohli",'Narendera Modi'],
+            "answer": "3",
+            "id": "2"
+        },
+        {
+            "question" : "How many strings are there in a guitar?",
+            "options" : ['five','six','seven','eight'],
+            "answer" : "1",
+            "id": "3"
+        },
+        {
+            "question" : "If today is Sunday. What will be day after tomorrow?",
+            "options": ['monday','tuesday','wednesday','thursday'],
+            "answer" : "1",
+            "id": "14"
+        },
+        {
+            "question" : "What is the capital of Australia?",
+            "options" : ['sydney','canberra','adelaide','melbourne'],
+            "answer" : "1",
+            "id": "5"
+        }
+ ]

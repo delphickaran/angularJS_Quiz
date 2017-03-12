@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp',['ui.router','ngResource','chart.js']);
+var myApp = angular.module('myApp',['ui.router','ngResource','chart.js','angularRipple']);
 myApp.config(function($stateProvider){
     $stateProvider
     .state('name',{
@@ -41,7 +41,7 @@ myApp.config(function($stateProvider){
         borderWidth: 3,
         hoverBackgroundColor: "rgba(255,99,132,0.4)",
         hoverBorderColor: "rgba(255,99,132,1)",
-        type: 'line'
+    //    type: 'line'
       }
     ];
      
@@ -72,7 +72,7 @@ myApp.config(function($stateProvider){
             }
        else{
            $scope.correctAns = false ;
-           $scope.answers.push(-1);
+           $scope.answers.push(0);
        }
            $scope.answerMode = false;
         
@@ -82,7 +82,7 @@ myApp.config(function($stateProvider){
             $scope.currentStep++;
            if($scope.currentStep>4){
                $scope.quizOver = true ;
-               
+               $scope.answers = [];               
            }
        }
       

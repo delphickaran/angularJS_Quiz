@@ -9,7 +9,7 @@
                 <ul id="options" class="row">
                     <li class="col-md-6" ng-repeat="option in ques.options">
                         <ul class="list-group  ">
-                            <li class="list-group-item" ng-click="checkAnswer(this)" onclick="myFunction(this, 'green')" style="cursor:pointer;">{{option}}
+                            <li ><button class="list-group-item" angular-ripple ng-click="checkAnswer(this)" style="cursor:pointer;">{{option}}</button>
                             </li>
                         </ul>
                     </li>                    
@@ -32,8 +32,7 @@
 	</div>
 
 	<div id="score">
-		<span class="" ng-show="quizOver">Final </span>Score: {{score}} of {{5}} {{answers}}
-        
+		<span class="" ng-show="quizOver">FinalScore: {{score}} of {{5}} {{answers}}</span>   
 	</div>
 </div>
 

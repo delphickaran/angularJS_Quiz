@@ -11,18 +11,19 @@ myApp.config(function($stateProvider){
  myApp.controller('mainController',['$scope','$http',function($scope,$http){
          $scope.name = "";
          $scope.enteredname = $scope.name;
-     $scope.currentStep= 1;
+         $scope.currentStep= 1;
          $scope.$watch('enteredname', function(){
          $scope.name = $scope.enteredname;
-         $http.get('questions.json').then(function(response){
-             $scope.questions = response.data ;
-              console.log($scope.questions);
-         })
+         
          //$scope.Api=$resource('questions.json');
         // $scope.questions = $scope.Api.query();
        
              
      });
+     $http.get('questions.json').then(function(response){
+             $scope.questions = response.data ;
+              console.log($scope.questions);
+         })
      // Initialize Quiz
        $scope.start = function(){                           
           $scope.score = 0;

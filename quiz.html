@@ -3,8 +3,8 @@
         <h1>Hello <span style="color:red">{{enteredname}}</span>!</h1>
         <hr>
         <div class="container"> 
-            <div class="jumbotron" ng-repeat ="question in questions">
-                <div ng-if="(question.id === currentStep)">
+            <div class="jumbotron" ng-repeat ="question in questions" ng-if="(question.id == currentStep)">
+                <div >
                 <h2 id="question">{{question}}</h2>
                 <ul id="options" class="row">
                     <li class="col-md-6" ng-repeat="option in options">
@@ -14,7 +14,7 @@
                         </ul>
                     </li>                    
                 </ul>
-                    </div>
+                </div>
             </div>
         </div>
 		<div ng-show="!answerMode">
